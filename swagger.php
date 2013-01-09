@@ -74,6 +74,7 @@ class v1 extends \veneer\call
 
     public function fetch($args)
     {
+        $docs = \veneer\util::get_documentation();
         list($null, $version, $endpoint) = explode('/', $args['endpoint']);
         $out = $docs[$endpoint][$version];
         $result = array(
