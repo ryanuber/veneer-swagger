@@ -31,7 +31,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace veneer\endpoint\api_docs;
+namespace veneer\endpoint\swagger;
 
 /**
  * An endpoint to massage typical veneer documentation data normally
@@ -45,7 +45,7 @@ class v1 extends \veneer\call
 {
     public $get = array(
         '/' => array(
-            'function' => 'api_docs',
+            'function' => 'swagger',
             'response_detail' => false
         ),
         '/fetch' => array(
@@ -54,13 +54,13 @@ class v1 extends \veneer\call
         )
     );
 
-    public function api_docs($args)
+    public function swagger($args)
     {
         $apis = array();
         foreach (\veneer\util::get_endpoints() as $version => $endpoints) {
             foreach ($endpoints as $endpoint) {
                 $apis[] = array(
-                    'path' => "/v1/api_docs/fetch?endpoint=/{$version}/{$endpoint}",
+                    'path' => "/swagger/fetch?endpoint=/{$version}/{$endpoint}",
                     'description' => ''
                 );
             }
@@ -68,21 +68,17 @@ class v1 extends \veneer\call
         return $this->response->set(array(
             'apiVersion' => '0.1',
             'swaggerVersion' => '1.1',
-            'basePath' => 'http://'.$_SERVER['HTTP_HOST'],
             'apis' => $apis
         ), 200);
     }
 
     public function fetch($args)
     {
-        $ch = curl_init('http://'.$_SERVER['HTTP_HOST'].$args['endpoint']);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'OPTIONS');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $out = json_decode(curl_exec($ch), true);
+        list($null, $version, $endpoint) = explode('/', $args['endpoint']);
+        $out = $docs[$endpoint][$version];
         $result = array(
             'apiVersion' => 'v1',
             'swaggerVersion' => '1.1',
-            'basePath' => 'http://'.$_SERVER['HTTP_HOST'],
             'resourcePath' => $args['endpoint'],
             'apis' => array(),
             'models' => array()
