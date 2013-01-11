@@ -80,7 +80,7 @@ class v1 extends \veneer\call
         $result = array(
             'apiVersion' => 'v1',
             'swaggerVersion' => '1.1',
-            'basePath' => "http://{$_SERVER['HTTP_HOST']}:{$_SERVER['SERVER_PORT']}",
+            'basePath' => "http://{$_SERVER['HTTP_HOST']}",
             'resourcePath' => $args['endpoint'],
             'apis' => array(),
             'models' => array()
