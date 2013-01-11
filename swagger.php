@@ -80,6 +80,7 @@ class v1 extends \veneer\call
         $result = array(
             'apiVersion' => 'v1',
             'swaggerVersion' => '1.1',
+            'basePath' => "http://{$_SERVER['HTTP_HOST']}:{$_SERVER['SERVER_PORT']}",
             'resourcePath' => $args['endpoint'],
             'apis' => array(),
             'models' => array()
@@ -87,6 +88,8 @@ class v1 extends \veneer\call
 
         foreach ($out as $method => $apis) {
             foreach ($apis as $api => $data) {
+                is_array($data) || $data = array();
+                array_key_exists('parameters', $data) || $data['parameters'] = array();
                 $current = array();
                 $params  = array();
                 foreach (explode('/', $api) as $part) {
