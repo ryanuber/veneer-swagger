@@ -20,14 +20,15 @@ Swagger, per its project page at
 What you need to know is that it's a super-slick collection of HTML, CSS, and
 Javascript that creates an explorable REST API experience without much effort.
 
-How do I use it?
-================
+How do I use veneer-swagger?
+============================
 
 A minimal implementation involves:
 
-* Downloading [swagger-ui](https://github.com/wordnik/swagger-ui "")
-* Installing it on a webserver somewhere
-* Pointing it at [your-api-url-here]/v1/swagger
+* Downloading [swagger-v1.php](https://raw.github.com/ryanuber/veneer-swagger/master/swagger-v1.php "")
+* Including swagger-v1.php in your code, as you would any other API endpoint
+* Installing [swagger-ui](https://github.com/wordnik/swagger-ui "") on a webserver
+* Pointing swagger-ui at [your-api-url-here]/v1/swagger
 
 If your API is publicly accessible, you could even "try before you buy" by
 visiting [the online demo](http://petstore.swagger.wordnik.com ""), changing
