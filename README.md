@@ -12,7 +12,7 @@ What is Swagger?
 ================
 
 Swagger, per its project page at
-[http://swagger.worldnik.com]("http://swagger.worldnik.com"), is:
+[http://swagger.worldnik.com](http://swagger.worldnik.com ""), is:
 
     a specification and complete framework implementation for describing, producing,
     consuming, and visualizing RESTful web services.
@@ -25,11 +25,11 @@ How do I use it?
 
 A minimal implementation involves:
 
-* Downloading [swagger-ui]("https://github.com/wordnik/swagger-ui")
+* Downloading [swagger-ui](https://github.com/wordnik/swagger-ui "")
 * Installing it on a webserver somewhere
 * Pointing it at [your-api-url-here]/v1/swagger
 
 If your API is publicly accessible, you could even "try before you buy" by
-visiting [the online demo]("http://petstore.swagger.wordnik.com/"), changing
+visiting [the online demo](http://petstore.swagger.wordnik.com ""), changing
 the URL field to point to [your-api-url-here]/v1/swagger, and pressing the
 "Explore" button. Instant documentation!
