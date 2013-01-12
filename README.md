@@ -3,7 +3,8 @@
 What does it do?
 ================
 
-veneer-swagger will massage the usual endpoint definitions into usable swagger
+veneer-swagger is an extension to [the veneer framework](https://github.com/ryanuber/veneer "")
+that will massage the usual endpoint definitions into usable swagger
 documentation format. This means you can have web documentation, developer
 experimentation tooling, and example client code generation, without writing
 any extra code!
