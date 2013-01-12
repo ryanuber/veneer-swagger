@@ -59,8 +59,8 @@ class v1 extends \veneer\call
         $apis = array();
         foreach (\veneer\util::get_endpoints() as $version => $endpoints) {
             foreach ($endpoints as $endpoint) {
-                $apis[] = array(
-                    'path' => "/swagger/fetch?endpoint=/{$version}/{$endpoint}",
+                $endpoint != 'swagger' && $apis[] = array(
+                    'path' => "/v1/swagger/fetch?endpoint=/{$version}/{$endpoint}",
                     'description' => ''
                 );
             }
@@ -68,6 +68,7 @@ class v1 extends \veneer\call
         return $this->response->set(array(
             'apiVersion' => '0.1',
             'swaggerVersion' => '1.1',
+            'basePath' => 'http://'.$_SERVER['HTTP_HOST'],
             'apis' => $apis
         ), 200);
     }
@@ -80,7 +81,7 @@ class v1 extends \veneer\call
         $result = array(
             'apiVersion' => 'v1',
             'swaggerVersion' => '1.1',
-            'basePath' => "http://{$_SERVER['HTTP_HOST']}",
+            'basePath' => 'http://'.$_SERVER['HTTP_HOST'],
             'resourcePath' => $args['endpoint'],
             'apis' => array(),
             'models' => array()
