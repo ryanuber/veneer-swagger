@@ -1,7 +1,7 @@
 ![""](http://ryanuber.github.com/veneer-swagger/veneer-swagger.png "")
 
 What does it do?
-================
+----------------
 
 veneer-swagger is an extension to [the veneer framework](https://github.com/ryanuber/veneer "")
 that will massage the usual endpoint definitions into usable swagger
@@ -10,7 +10,7 @@ experimentation tooling, and example client code generation, without writing
 any extra code!
 
 What is Swagger?
-================
+----------------
 
 Swagger, per its project page at
 [http://swagger.worldnik.com](http://swagger.wordnik.com ""), is:
@@ -22,7 +22,7 @@ What you need to know is that it's a super-slick collection of HTML, CSS, and
 Javascript that creates an explorable REST API experience without much effort.
 
 How do I use veneer-swagger?
-============================
+----------------------------
 
 A minimal implementation involves:
 
@@ -37,7 +37,7 @@ the URL field to point to [your-api-url-here]/v1/swagger, and pressing the
 "Explore" button. Instant documentation!
 
 Caveats
-=======
+-------
 
 Since Swagger is run entirely in your browser, it is susceptible to the
 [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy ""). To
