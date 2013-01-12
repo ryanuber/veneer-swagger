@@ -12,7 +12,7 @@ What is Swagger?
 ================
 
 Swagger, per its project page at
-[http://swagger.worldnik.com](http://swagger.worldnik.com ""), is:
+[http://swagger.worldnik.com](http://swagger.wordnik.com ""), is:
 
     a specification and complete framework implementation for describing, producing,
     consuming, and visualizing RESTful web services.
