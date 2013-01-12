@@ -41,14 +41,10 @@ Caveats
 
 Since Swagger is run entirely in your browser, it is susceptible to the
 [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy ""). To
-work around this (and there are many ways), a few things you might do include:
+work around this (and there are many ways), a few things you might do could include:
 
 * If you are using Apache, add a header to every request within an Apache directory tag:
-
-    Header set Access-Control-Allow-Origin "*"
-
+  `Header set Access-Control-Allow-Origin "*"`
 * Within your endpoint code, set an access control header:
-
-    $this->response->set_header('Access-Control-Allow-Origin: *');
-
+  `$this->response->set_header('Access-Control-Allow-Origin: *');`
 * Run swagger and your API code within the same domain
