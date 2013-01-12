@@ -35,3 +35,20 @@ If your API is publicly accessible, you could even "try before you buy" by
 visiting [the online demo](http://petstore.swagger.wordnik.com ""), changing
 the URL field to point to [your-api-url-here]/v1/swagger, and pressing the
 "Explore" button. Instant documentation!
+
+Caveats
+=======
+
+Since Swagger is run entirely in your browser, it is susceptible to the
+[same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy ""). To
+work around this (and there are many ways), a few things you might do include:
+
+* If you are using Apache, add a header to every request within an Apache directory tag:
+
+    Header set Access-Control-Allow-Origin "*"
+
+* Within your endpoint code, set an access control header:
+
+    $this->response->set_header('Access-Control-Allow-Origin: *');
+
+* Run swagger and your API code within the same domain
