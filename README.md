@@ -1,4 +1,4 @@
-![""](http://ryanuber.github.com/veneer-swagger/veneer-swagger.png "")
+![""](http://ryanuber.github.com/assets/projects/veneer-swagger.png "")
 
 What does it do?
 ----------------
