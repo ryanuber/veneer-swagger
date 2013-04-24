@@ -46,11 +46,11 @@ class v1 extends \veneer\call
     public $get = array(
         '/' => array(
             'function' => 'swagger',
-            'response_detail' => false
+            'output_handler' => 'json'
         ),
         '/fetch' => array(
             'function' => 'fetch',
-            'response_detail' => false
+            'output_handler' => 'json'
         )
     );
 
@@ -108,6 +108,15 @@ class v1 extends \veneer\call
                     }
                 }
                 $route = preg_replace('~/:([^/]+)~', '/{$1}', $args['endpoint'].$api);
+
+                /**
+                 * veneer-swagger can't support route splats, because they do not describe
+                 * a concrete endpoint route.
+                 */
+                if (strpos($route, '*')) {
+                    continue;
+                }
+
                 if (is_array($data) && is_array($data['parameters'])) {
                     foreach ($data['parameters'] as $param_name => $param_data) {
                         $param = array();
