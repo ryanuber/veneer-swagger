@@ -135,7 +135,14 @@ class v1 extends \veneer\call
                     }
                 }
                 $current['path'] = $route;
-                $current['description'] = (array_key_exists('description', $data) ? $data['description'] : '');
+                $current['description'] = '';
+                if (array_key_exists('description', $data)) {
+                    $current['description'] = str_replace(
+                        "\n",
+                        '<br>',
+                        $data['description']
+                    );
+                }
                 $current['operations'][] = array(
                     'httpMethod' => strtoupper($method),
                     'nickname' => uniqid(),
